@@ -1,0 +1,6 @@
+/nbproject*
+tests/_support/_generated
+vendor/
+tests/_output
+tests/*.suite.yml
+codeception.yml
