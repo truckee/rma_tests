@@ -626,3 +626,14 @@ ALTER TABLE `wp_users`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+DROP TABLE IF EXISTS wprest.member;
+CREATE TABLE wprest.member (id INTEGER NOT NULL, email VARCHAR(255) DEFAULT NULL, password VARCHAR(255) NOT NULL, enabled BOOLEAN NOT NULL, PRIMARY KEY(id));
+INSERT INTO wprest.member VALUES(1,'bborko@bogus.info','$2y$13$X04gnptMF5BAOQ1XWKOEWuTj.s7vqHgU.4HiQK4hvFLcMFM5Nh/r2',1);
+INSERT INTO wprest.member VALUES(2,'developer@bogus.info','',1);
+INSERT INTO wprest.member VALUES(3,'jglenshire@bogus.info','$2y$10$AyrP6xfaHKbt8pOBYAc8lusg3.QJCMByXH/8mU9Xzwj33evkvg872',0);
+DROP TABLE IF EXISTS wprest.users;
+CREATE TABLE wprest.users (id INTEGER NOT NULL, username VARCHAR(180) NOT NULL, username_canonical VARCHAR(180) NOT NULL, email VARCHAR(180) NOT NULL, email_canonical VARCHAR(180) NOT NULL, enabled BOOLEAN NOT NULL, salt VARCHAR(255) DEFAULT NULL, password VARCHAR(255) NOT NULL, last_login DATETIME DEFAULT NULL, confirmation_token VARCHAR(180) DEFAULT NULL, password_requested_at DATETIME DEFAULT NULL, roles varchar(255) NOT NULL, apikey VARCHAR(40) NOT NULL, PRIMARY KEY(id));
+INSERT INTO wprest.users VALUES(1,'admin','admin','admin@bogus.info','admin@bogus.info',1,NULL,'$2y$13$X04gnptMF5BAOQ1XWKOEWuTj.s7vqHgU.4HiQK4hvFLcMFM5Nh/r2',NULL,NULL,NULL,'a:1:{i:0;s:10:"ROLE_ADMIN";}','3e2ec79352d2e9cbd76ad409d968ee435af6695c');
+CREATE UNIQUE INDEX UNIQ_1483A5E992FC23A8 ON wprest.users (username_canonical);
+CREATE UNIQUE INDEX UNIQ_1483A5E9A0D96FBF ON wprest.users (email_canonical);
+CREATE UNIQUE INDEX UNIQ_1483A5E9C05FB297 ON wprest.users (confirmation_token);
