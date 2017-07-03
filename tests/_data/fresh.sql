@@ -2,10 +2,6 @@
 -- version 4.5.3.1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jun 21, 2017 at 03:20 PM
--- Server version: 5.6.21-log
--- PHP Version: 7.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +13,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `uufnn`
+-- Database: `wptests`
 --
 
 -- --------------------------------------------------------
